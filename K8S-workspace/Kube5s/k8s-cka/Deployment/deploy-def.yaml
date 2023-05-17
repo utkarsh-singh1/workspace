@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-def
+  labels:
+    tier: mydeploy
+spec:
+  selector:
+    matchLabels: 
+      tier: frontend
+  replicas: 3
+  template:
+    metadata:
+      name: pod-def
+      labels: 
+        tier: frontend
+    spec:
+      containers:
+        - name: redis-cont
+          image: redis
