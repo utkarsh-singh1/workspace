@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-cont
-          image: busybox
+          image: redis
   replicas: 3
   selector: 
     matchLabels:

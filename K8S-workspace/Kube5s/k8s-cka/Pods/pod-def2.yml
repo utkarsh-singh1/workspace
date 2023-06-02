@@ -1,0 +1,14 @@
+
+apiVersion: v1
+# Value of kind is case senitive so remember to write first letter capital to any k8s object
+kind: Pod
+# Underlying type of metadata is dictionary
+metadata:
+  # name and labels are defult properties of k8s but you can mention any numbers ( key : value ) inside labels.
+  name: mypod2
+  labels:
+    type: alpine-pod
+spec:
+  containers:
+    -  name: alpine-cont
+       image: alpine

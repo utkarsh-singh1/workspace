@@ -1,0 +1,14 @@
+# Default type of service is Cluster-IP , if no type is mentioned Cluster-IP is Default type.
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service1
+spec:
+  type: ClusterIP
+  ports:
+    - targetPort: 80
+      port: 80
+  selector:
+    type: 
+
+
