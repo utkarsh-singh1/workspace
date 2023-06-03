@@ -1,3 +1,4 @@
+# CLUSTER_IP
 # Default type of service is Cluster-IP , if no type is mentioned Cluster-IP is Default type.
 apiVersion: v1
 kind: Service
@@ -9,6 +10,6 @@ spec:
     - targetPort: 80
       port: 80
   selector:
-    type: 
+    type: redis-pod 
 
 
