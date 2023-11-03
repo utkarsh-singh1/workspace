@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selector-deployment
+spec:
+  template:
+    metadata:
+      name: selctor-pod2
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - image: redis:alpine
+          name: redis-img
+      nodeSelector:
+        size: small
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+    
