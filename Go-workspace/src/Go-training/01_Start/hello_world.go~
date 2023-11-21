@@ -1,9 +1,0 @@
-package hello_world
-
-import "fmt"
-
-func print(x int,y string) {
-
-	fmt.Printf("%s is %#v years old \n",y,x) 
-
-} 
