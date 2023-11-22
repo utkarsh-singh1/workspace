@@ -11,5 +11,5 @@ func main() {
 	fmt.Println(maruti.Chant())
 	fmt.Println(maruti.Chants())
 	fmt.Println(maruti.Roar())
-	 
+
 }
