@@ -1,4 +1,6 @@
-* Spaghetti-Code-
+#+title: SPAGHETTI-CODE VS MODULAR-CODE / STRCTURED PROGRAMMING 
+
+* Spaghetti-Code ->
 
 1. Messy, tangled lines of code that are not easily traceable. Written in haphazard way that it can not be modify.
 2. Structure of code that has not followed proper software dev strcture, resulting in unmaintanable, can not be read, can not be debug easily also
@@ -6,7 +8,18 @@
 3. Dev needs to follow proper software dev structure to write modular and reusable code.
 4. Follow best practices to develop software like - structured approah and modular code and document it properly.
 
-* Modular Code-
+* Modular Code / Structured Programming ->
+
+Structured way of Programming is to write code in a organized and methodical way.
+
+** Then what is the way to structured programming?
+
+Break a large software project into a smaller and managable tasks, so that each tasks can be designed and implemented in a logical and coherent manner. The goal is to
+have a readable, maintainable and scalable codebase that can create a software that is easily fixable, less errors and improves software quality. 
+
+
+
+
 
 
  

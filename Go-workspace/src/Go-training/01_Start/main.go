@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
-	welcome "go-training/01_Start/hello_world"
+	hello "go-training/01_Start/hello_world"
 )
 
 func main() {
 	fmt.Println("Hello_World")
-	x := welcome.Hello("haha")
+	x := hello.Hello("haha")
 	fmt.Println(x)
+	hello.Bolo()
+	fmt.Println(hello.Kaho)
 }
