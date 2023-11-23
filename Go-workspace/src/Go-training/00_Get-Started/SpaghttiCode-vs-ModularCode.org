@@ -1,6 +1,8 @@
 #+title: SPAGHETTI-CODE VS MODULAR-CODE / STRCTURED PROGRAMMING 
+#+author: Utkarsh Singh
+#+date: Nov 23, 2023
 
-** Spaghetti-Code ->
+** Spaghetti-Code 
 
 1. Messy, tangled lines of code that are not easily traceable. Written in haphazard way that it can not be modify.
 2. Structure of code that has not followed proper software dev strcture, resulting in unmaintanable, can not be read, can not be debug easily also
@@ -8,7 +10,7 @@
 3. Dev needs to follow proper software dev structure to write modular and reusable code.
 4. Follow best practices to develop software like - structured approah and modular code and document it properly.
 
-** Modular Code / Structured Programming ->
+** Modular Code / Structured Programming 
 
 Structured way of Programming is to write code in a organized and methodical way.
 
@@ -17,7 +19,21 @@ Structured way of Programming is to write code in a organized and methodical way
 Break a large software project into a smaller and managable tasks, so that each tasks can be designed and implemented in a logical and coherent manner. The goal is to
 have a readable, maintainable and scalable codebase that can create a software that is easily fixable, less errors and improves software quality. 
 
+*** What is Modular Code and use of modular Code?
 
+Modular Code is a programming technique where a programm is break into a smaller and independent modules or components. Each components/modules perform there tasks,
+and they are designed to work toghether to achieve overall functionality of the program. Now each module/component is easy to manage, test and maintain the code.
+Each module is  developed and tested independently, so making it easier to debug and modify the code. Also, modules can be reused as a 3rd party library or package that
+can be imported to save time and effort in future software development.
+
+*** Best practice for Strctured Programming
+
+1. Define Requirement
+2. Detailed Design
+3. Breaking down project into a smaller and manageble tasks.
+
+Now these practices will help devs to develop scalable, efficient and reliable code, that can be maintain and modify over time. Modular code can help devs to create more
+strucured and maintainable software which is essential for large and complex software projects.
 
 
 
