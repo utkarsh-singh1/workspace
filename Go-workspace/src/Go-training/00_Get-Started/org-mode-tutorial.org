@@ -1,6 +1,6 @@
-* First level Heading
+* DONE Org Basic
 
-- Here is some content
+- Some important keybinding.
 
 - Hit <Ctrl+enter> on any heading to create similar indentation/star level heading on next phase/under the existing one but hitting <Alt+enter> will create new similiar
   indentation/star level just next line of the heading
@@ -9,7 +9,7 @@
 
 - Press <C-c C-l> or <M-x org-insert-link Return> to insert a link to a certain text or create a certain text for the link. Ex.[[https:orgmode.org][Org Mode Homepage]]
   
-** Second level Heading
+** Important formatting tips
 
 Here some more content
 
@@ -28,18 +28,21 @@ Here some more content
 - You can _/*combine*/_ the basic markup in any order, however ~code~ and =verbatim= need to be the *_~inner-most~_* markers if they are present since their contents
   are interpreted =_literally_=.
   
-*** Third level Heading
+*** Table in org-mode ( Seriously its fun man)
 
 Added more content
 
 1. table in Emacs - Just create headings i have created here , then press tab at the end word of your last heading, new cells will start to form automatically,
    similiar will happen to the contents to the cells.
 
+   |------------+-----+--------------------|
    | Name       | Age | Does it work (y/n) |
+   |------------+-----+--------------------|
    | Ajay Kumar |  90 | y                  |
    | Utkarsh    |  78 | n                  |
    | Somu       |  79 | y                  |
-   |            |     |                    |
+   |------------+-----+--------------------|
+   
 
 2. Example - try pressing at the end of hello means , press <tab> after o.
 
@@ -58,7 +61,7 @@ Added more content
    |       |         | kola  |
    |       |         |       |
 
-**** Fourth level Heading
+**** Lists, checques, tags and many more
 
 Lists -
 
@@ -90,7 +93,7 @@ Check box -
 - use (::) to create a tag at a list.
 - press <shift+alt+enter> below a orederd/unordered list to create a checklist based on list type in general.
   
-***** Fifth level Heading
+***** Writing code in emacs man (maja hi gya)
 
 One of the best feature of emacs, to write source code in a bloack like this -
 
@@ -122,11 +125,11 @@ Ex.
 
 ****** TODO Sixth level heading
 
-- use TODO to create task to done. Emacs org-mode has 2 states TODO and DONE , if you wanna change an state to another use <C-c C-t> / <M-x org-todo Return> 
+- use TODO to create task to done. Emacs org-mode has 2 states TODO and DONE , if you wanna change an state to another use <C-c C-t> / <M-x org-todo Return>
 
 - Also use <shift+left/right arrow-keys> to change state of an heading from todo->done->nothing.
+  
 
-
-* Some new 1st level heading
+* TODO Org-Advance
 
 
