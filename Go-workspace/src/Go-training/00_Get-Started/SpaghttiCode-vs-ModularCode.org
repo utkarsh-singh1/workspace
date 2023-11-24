@@ -1,6 +1,7 @@
 #+title: SPAGHETTI-CODE VS MODULAR-CODE / STRCTURED PROGRAMMING 
 #+author: Utkarsh Singh
-#+date: Nov 23, 2023
+#+date: 2023-11-23
+#+description: A general difference between spaghetti or messy code structure vs a proper structured or modular way of writing code.
 
 ** Spaghetti-Code 
 
