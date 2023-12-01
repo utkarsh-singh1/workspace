@@ -1,4 +1,4 @@
-* DONE Org Basic
+* Org Basic
 
 - Some important keybinding.
 
@@ -93,7 +93,7 @@ Check box -
 - use (::) to create a tag at a list.
 - press <shift+alt+enter> below a orederd/unordered list to create a checklist based on list type in general.
   
-***** Writing code in emacs man (maja hi gya)
+***** Writing code in emacs man (maja hi gya [[./melting-emoji.png]])
 
 One of the best feature of emacs, to write source code in a bloack like this -
 
@@ -123,13 +123,33 @@ Ex.
       }
 #+end_src
 
-****** TODO Sixth level heading
+****** DONE Todo-Done
 
 - use TODO to create task to done. Emacs org-mode has 2 states TODO and DONE , if you wanna change an state to another use <C-c C-t> / <M-x org-todo Return>
 
 - Also use <shift+left/right arrow-keys> to change state of an heading from todo->done->nothing.
   
 
-* TODO Org-Advance
+* Org-Advance
+
+** Org-Agenda
+
+*** Active
+
+**** Kuch toh krna h
+
+**** Kuch toh jaruru krna h 
+Now what is deadline - to do some work before a certain date and time. Also emacs (org-agenda) will alarm you about your deadline. You can set the how much days before to alarm you about your task by using ( org-deadline-warning-days) variable in emacs to amount of days you want (default is 14).  
+
+*** Set Birthday in Emacs
+
+**** +Hariom Birthday+
+
+*** Additional Tasks states
+
+**** Do this Instead
+
+
+
 
 

@@ -1,0 +1,39 @@
+* Hash Algorithm, Encryption and Communication
+
+** Hash Algorithm
+
+Hash Algorithm is a mathematical function that generates a output pf fixed size based on the input that can be of variable size. Now the output generated (a Unique value) is actually totally dependent on input provided, so changing even a single value in the input could generated a completely new and different output value. The output generated also called as hash or digest. Use of hash algorithm includes data integrity checks, password storage, digital signatures and message authentication. When you create a password at any login site it generates a hash that got stored in a database, when you again login to the page with that password a hash is generated and comapre against the stored hash in the DB.
+A hash algorithm is a one-way function which generates an output but using it for generate the input value from it is nearly impossible or extermely difficult. This make them useful for storing passwords and information. Examples of sum hash algos are MD5, SHA-1, SHA-2, SHA-3 but some of these algo including MD5 and SHA-1 are insecure and should be avoided to use in general.
+
+** Encryption
+
+There are 2 types of encryption :-
+
+1. Symmetric / synchronous encryption (single key)
+2. Asymmetric encryption ( public/private key)
+
+Now Symmetric and Asymmetric Encryption are 2 types of encryption that are used to encrypt the data. Syncronous encryption uses single key to encrypt and decrypt the data. The process of encryption and descryption is fast and efficient that makes it a popular choice to use it for encrupting large amount of data. Popular example of Synchronous encryption is Advance encryption stanadard (AES) and Data encryption standard (DES).
+
+Asymmetric encruption algorithm uses a pair of keys : public and private key. It is also known as public-key encryption. The public key is used to encrypt the data and private key is used to descrypt it. Anybody can encrypt the data using public key but the decryption of the data can be only done by holder of private key. As above stated condition for asymmetric encryption it is considered secure towards communicating between 2 points or nodes over a channel that is insecure, Ex. Internet. Some examples of Asymmetric Encryption are RSA, Eliptic curve cryptography(ECC).
+
+Both type of encryption are used over different purpose over their approach towards encryption and Diiferent application choose them based on their different advantages and disadvantages, where Symmetric/Synchronous encryption is used for their fast and efficient approach towards encrypting large amounts of data ,where as Asymmetric encryption is used for secured communication over insecured channels. 
+
+** Communication
+
+In telecommunication there are different types of communication-
+
+- Simplex
+- Half-duplex
+- Duplex/Full-duplex
+
+*** Simplex -
+
+Also known as one-way communication, sender can send data but can not recieve it from reciever. Ex- Television, most remote control devices
+
+*** Half-duplex -
+
+There can be 2 way coomunication like sending and recieving message but not at a same time (Synchronous), sender must wait for tansmission to be end before reciving a message from reciever vice-versa. Ex- Walkie Talkie, CB radio
+
+*** Full-duplex -
+
+It is a 2 way coomunication at the same time unlike half-duplex. Ex- Internet chat, Mobile communication and meetings.
