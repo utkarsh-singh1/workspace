@@ -1,43 +1,13 @@
-package main
+package inputs
 
 import (
-	"bufio"
 	"errors"
-	"fmt"
 	"os"
 	"os/exec"
 	"strings"
 )
 
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-
-	for {
-		fmt.Print("% ")
-		
-		// read from the keyboard
-
-		input , err := reader.ReadString('\n')
-
-		if err != nil {
-
-			fmt.Fprintln(os.Stderr, err)
-		}
-
-		// Handle the execution of the input
-		
-		if err = execInput(input); err != nil {
-
-			fmt.Fprintln(os.Stderr, err)
-		}
-
-		
-
-	}
-}
-
-
-func execInput(input string) error {
+func ExecInput(input string) error {
 
 	// Remove the newline character
 
@@ -67,10 +37,9 @@ func execInput(input string) error {
 		os.Exit(0)
 	}
 
-
 	// Prepare the command to execute
 
-	cmd := exec.Command(args[0], args[1:]... )
+	cmd := exec.Command(args[0], args[1:]...)
 
 	// set the correct output device
 
@@ -78,12 +47,4 @@ func execInput(input string) error {
 	cmd.Stdout = os.Stdout
 
 	return cmd.Run()
-}
-
-func helloWorld(x string) string {
-
-	if x == "hello" {
-		return "Hi"
-	}
-        
 }
