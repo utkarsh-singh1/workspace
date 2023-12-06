@@ -93,7 +93,7 @@ Check box -
 - use (::) to create a tag at a list.
 - press <shift+alt+enter> below a orederd/unordered list to create a checklist based on list type in general.
   
-***** Writing code in emacs man (maja hi gya [[./melting-emoji.png]])
+***** Writing code in emacs man (maja hi gya [[./melting-emoji.png]] )
 
 One of the best feature of emacs, to write source code in a bloack like this -
 

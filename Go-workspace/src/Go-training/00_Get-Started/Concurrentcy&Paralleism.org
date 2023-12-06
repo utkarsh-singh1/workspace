@@ -1,0 +1,31 @@
+* Go - Blog 
+
+[[./Go-lang-intro.png]]
+
+
+** #2 -> Concurrency And Parallelism
+
+Concurrency and Parallelism are related but distinct programming concepts.
+
+
+
+*** Concurrency
+
+Concurrency refers to a code that is written in concurrent design pattern. This means code has a potential ability to execute multiple tasks simultaneously, also each tasks may run/progress independent of other tasks.
+
+[[./concurrency.png]]
+
+- In Go, concurrency acheived with the help of go-routines, lightweight threads of execution are managed by go-routines.
+- A GO program can create multiple go-routine that run concurrently, each performing a different task. 
+- Concurrency and Synchronization in these go-rutine done using channels, which provides a way for go-routines to exchange data and communicate during execution.
+
+  
+
+
+*** Parallelism
+
+Parallelism refers to a ability of a program to execute multiple tasks simultaneously using multiple cores/CPUs.
+
+[[./parallelcomputing.jpg]]
+
+- Parellelism is often used to execute programs faster as it will execute multiple parts of program on parallel or different processors. In Go, we can execute multiple go-routines on different processors using go keyword. 
