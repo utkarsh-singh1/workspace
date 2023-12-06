@@ -15,7 +15,7 @@ Concurrency refers to a code that is written in concurrent design pattern. This 
 
 [[./concurrency.png]]
 
-- In Go, concurrency acheived with the help of go-routines, lightweight threads of execution are managed by go-routines.
+- In Go, concurrency acheived with the help of go-routines, Goroutines are lightweight threads that enable concurrent execution of Go programs. 
 - A GO program can create multiple go-routine that run concurrently, each performing a different task. 
 - Concurrency and Synchronization in these go-rutine done using channels, which provides a way for go-routines to exchange data and communicate during execution.
 
