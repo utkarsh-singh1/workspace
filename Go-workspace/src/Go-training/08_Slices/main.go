@@ -1,0 +1,94 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	// Like array they store values but they are flexible in length
+
+	// Slice literal
+
+	xs := []int{1,2,3,4}
+
+	a := []int{1,2,3,4}
+
+	b := []int{0,0,0,0}
+
+	fmt.Println(xs,a,b)
+
+
+	for i:=0 ; i < len(xs) ; i++{
+		b[i] = a[i] + xs[i]
+	}
+
+	fmt.Println(b)
+
+	// Append to a slice
+
+	xi := []int{32,34,56}
+
+	fmt.Println(xi)
+
+	xi = append(xi, 32,34,45,67,68)
+
+	fmt.Println(xi)
+
+	xi = append(xi, a...)
+
+	fmt.Println(xi)
+
+	// Slice a slice
+
+	xi1 := []int{1,2,4,5,21,43,52,8,6,7,9}
+
+	fmt.Println(xi1[0:3])
+	fmt.Println(xi[3:9])
+	fmt.Println(xi1[:10])
+	fmt.Println(xi1[5:])
+	fmt.Println(xi[:4])
+
+	xi1 = append(xi1, 3,4,5)
+
+	fmt.Println(xi1)
+
+
+	// Delete a slice -> delete 43 from xi1
+
+	// 43 index is 5
+
+	xi1 = append(xi1[:5], xi1[6:]...)
+
+	fmt.Println(xi1)
+
+
+	// Use make to create a slice
+
+	// syntax -> slice := make([]type, len, cap)
+
+	si := make([]int,4,8)
+
+	fmt.Println(si,"length is",len(si),"and capacity is",cap(si))
+
+	si = append(si, xs...)
+
+	fmt.Println(si,"length is",len(si),"and capacity is",cap(si))
+
+	si = append(si, b...)
+
+	fmt.Println(si,"length is",len(si),"and capacity is",cap(si))
+
+	si = append(si[:4], )
+
+	fmt.Println(si,"length is",len(si),"and capacity is",cap(si))
+
+
+	// Multi-dimensional slice
+
+	c := [][]int{a,b}
+
+	fmt.Println(c)
+	
+	
+}
+
+
