@@ -12,6 +12,11 @@ func main() {
 	var x int = 32
 	var y int = 43
 	fmt.Println(variable.AddThis(x, y))
+
+	c := variable.AddThis(x,y)
+
+	fmt.Printf("Type of c is %T \n",c)
+	
 	fmt.Println(variable.SubtractThis(x, y))
 	dog.Bark()
 

@@ -16,6 +16,8 @@ func main() {
 
 	fmt.Println(xs,a,b)
 
+	fmt.Println(len(a),cap(a))
+
 
 	for i:=0 ; i < len(xs) ; i++{
 		b[i] = a[i] + xs[i]
@@ -87,6 +89,33 @@ func main() {
 	c := [][]int{a,b}
 
 	fmt.Println(c)
+
+	// Slice is build upon array, means it always point towards array whenever it needs values, so any slice made of that slice always gonna point towards same array
+
+	arr := []int{1,2,3,4,5}
+
+	brr := arr
+
+	fmt.Println(arr,brr)
+
+	
+	arr[4] = 56
+
+	fmt.Println(arr,brr)
+
+	// Now what to do if any slice that gonna use slice arr value but not point towards that same undeline array, use copy()
+
+	crr := make([]int, len(arr))
+
+	copy(crr,arr)
+	
+	fmt.Println(arr,crr)
+
+	
+	arr[4] = 36
+
+	fmt.Println(arr,crr)
+
 	
 	
 }
