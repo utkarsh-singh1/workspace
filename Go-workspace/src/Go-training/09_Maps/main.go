@@ -48,11 +48,5 @@ func main() {
 
 	fmt.Println(mp[2])
 
-	// New bool var
-
-	var x bool
-
-	fmt.Println(x)
-
 	
 }

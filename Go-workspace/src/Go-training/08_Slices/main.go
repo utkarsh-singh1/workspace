@@ -116,8 +116,39 @@ func main() {
 
 	fmt.Println(arr,crr)
 
-	
+	// Example
+
+	xi2 :=  make([]int,0,10)
+
+	xi2 = []int{2,4,6,5,23,44,34,56,77,91,8,10,18,19}
+
+	x,y := findeven(xi2)
+
+	fmt.Println(x,y,xi2)
 	
 }
+
+
+// It will return number of even values in a slice/array 
+func findeven(s []int) (int,[]int) {
+
+	n := 0
+
+	for k  := range s {
+		if s[k] % 2 == 0 {
+			n++
+		}else{
+			s[k] = s[k] + 1
+		}
+	}
+
+	return n,s
+}
+
+
+// it will return number of odd values in a slice/array
+// func findodd(s []int) int {
+
+// }
 
 
