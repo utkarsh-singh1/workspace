@@ -1,37 +1,41 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
+	"io"
 	"log"
 	"os"
 )
 
-// type person struct {
-// 	first string
-// }
+type person struct {
+	first string
+}
 
-// func (p person) writeout(w io.Writer) error {
+func (p person) writeout(w io.Writer) {
 
-// 	_,err := w.Write([]byte(p.first))
-// 	return err
-// }
+	w.Write([]byte(p.first))
+}
 
 func main() {
 
-	f,err := os.Create("random.txt")
+	p := person{
+		first: "Utkarsh",
+	}
+
+	f, err := os.Create("random.txt")
 
 	if err != nil {
 		log.Fatalf("error %s\n", err)
 	}
 
 	defer f.Close()
-	
-	s := []byte("Hello gophers!")
-	
-	_,err = f.Write(s)
 
-	if err != nil {
-		log.Fatalf("error %s", err)
-	} 
-	
-	
+	p.writeout(f)
+
+	var b bytes.Buffer
+
+	p.writeout(&b)
+
+	fmt.Println(b.String())
 }
