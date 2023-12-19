@@ -55,4 +55,6 @@ func main() {
 	// Here logInfo is a wrapper function as it wrap over a existing method String()
 	logInfo(b1)
 	logInfo(c)
+
+	fmt.Printf("%T\n",b1.String())
 }
