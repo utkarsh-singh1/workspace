@@ -38,4 +38,8 @@ func main() {
 	p.writeout(&b)
 
 	fmt.Println(b.String())
+
+	o := os.Environ()
+
+	fmt.Println(o)
 }
