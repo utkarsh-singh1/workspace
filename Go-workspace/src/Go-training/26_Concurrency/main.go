@@ -24,7 +24,7 @@ func main() {
 	fmt.Println("CPUs\t\t",runtime.NumCPU())
 	fmt.Println("ROUTINES\t",runtime.NumGoroutine())
 
-	//wg.Wait()
+	wg.Wait()
 }
 
 

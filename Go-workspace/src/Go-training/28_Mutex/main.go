@@ -20,7 +20,7 @@ func main() {
 
 	var wg sync.WaitGroup
 
-	wg.Add(gs)
+	wg.Add(30)
 
 	var mu sync.Mutex
 
@@ -44,7 +44,7 @@ func main() {
 			wg.Done()
 		}()
 
-		fmt.Println("In work Goroutines", runtime.NumGoroutine())
+		fmt.Println("In work Goroutines", runtime.NumGoroutine(),"The value of i is",i)
 	}
 
 	wg.Wait()
