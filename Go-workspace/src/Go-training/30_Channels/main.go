@@ -34,12 +34,14 @@ func main() {
 
 	// syntax -> c := make(chan type_name, buffer_size)
 	
-	c1 := make(chan int, 1) // Buffer channels is a type of channel that can take certain amount of values and store it without worring when it should be taken off.
+	c1 := make(chan int, 3) // Buffer channels is a type of channel that can take certain amount of values and store it without worring when it should be taken off.
 
 	c1 <- 32
-	// c1 <- 45
-	// c1 <- 56
+	c1 <- 45
+	c1 <- 56
 
+	fmt.Println(<-c1)
+	fmt.Println(<-c1)
 	fmt.Println(<-c1)
 
 	
