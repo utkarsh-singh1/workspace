@@ -41,6 +41,10 @@ Added more content
    | Ajay Kumar |  90 | y                  |
    | Utkarsh    |  78 | n                  |
    | Somu       |  79 | y                  |
+   |            |     |                    |
+   |            |     |                    |
+   |------------+-----+--------------------|
+   |            |     |                    |
    |------------+-----+--------------------|
    
 
@@ -60,6 +64,12 @@ Added more content
    | hello |         | no;   |
    |       |         | kola  |
    |       |         |       |
+
+4. To create a table with borders above the headings, type | then add - in front of it Eg -> '|-', then press tab , it will automatically create a borderline acc. to the table.
+
+   |-------+----+--------|
+   | Sytem | Om | HariOm |
+   |       |    |        |
 
 **** Lists, checques, tags and many more
 
