@@ -1,0 +1,2 @@
+2024/01/29 22:05:09 An err happened -> open hello.txt: no such file or directory
+2024/01/29 22:05:09 There is an error occured-> open file.txt: no such file or directory
