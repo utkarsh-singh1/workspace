@@ -1,0 +1,45 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" >
+        <meta name=""viewport" content="width=device-width , intial-scale=1.0">
+    </head>
+    <body>
+
+        <header></header>
+        <nav></nav>
+        <main>
+            <input type="text" id="Username" name="Username" required >
+
+            <!-- Different type of inputs in website-->
+
+            <!-- 1. This type of input tag is used in HTml forms to activate a script when a button is clicked-->
+            <input type="button" value="Click me" onclick="msg()"/>
+
+            <!-- This can be achieved with button tag-->
+            <button onClick="alert('Are you sure you want to continue?')" >
+                click me
+            </button> 
+
+            
+            <section>
+                <menu>
+                    <!-- 2. Checkbox type input , checkbox type of inputs allows selecting one or more options out of listed elements -->
+                    <input type="checkbox" id="dog" name="Dog" value="Dog" />
+                    <label for="dog">Like if you love dog</label>
+                    <br />
+                    <input type="checkbox" id="cat" name="Cat" value="Cat" />
+                    <label for="cat" > Like if you love cat </label>
+                </menu>
+                <menu>
+                    <!-- 3. Radio type element, It is checkbox that check only one out of multiple, It is generally represented as radio groups  which is just a collection of radio buttons of set of options which share same attribute also k/a as name -->
+                    <input id="light" name="theme" type="radio" value="Light" />
+                    <label for="light"> Light </label>
+                    <br />
+                    <input id="dark" name="theme" type="radio" value="Dark" />
+                    <label for="dark"> Dark </label>
+                </menu>
+            </section>
+        </main>
+    </body>
+</html>
