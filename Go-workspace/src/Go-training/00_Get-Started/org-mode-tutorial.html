@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-02-05 Mon 09:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="UTKARSH SINGH" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgde62492">1. Org Basic</a>
+<ul>
+<li><a href="#orga4d7079">1.1. Important formatting tips</a>
+<ul>
+<li><a href="#orgbbf84e6">1.1.1. Table in org-mode ( Seriously its fun man)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org22a8db9">2. Org-Advance</a>
+<ul>
+<li><a href="#org964b550">2.1. Org-Agenda</a>
+<ul>
+<li><a href="#org9313bf0">2.1.1. Active</a></li>
+<li><a href="#orgf5e4cb3">2.1.2. Set Birthday in Emacs</a></li>
+<li><a href="#org86cab93">2.1.3. Additional Tasks states</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde62492" class="outline-2">
+<h2 id="orgde62492"><span class="section-number-2">1.</span> Org Basic</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Some important keybinding.</li>
+
+<li>Hit &lt;Ctrl+enter&gt; on any heading to create similar indentation/star level heading on next phase/under the existing one but hitting &lt;Alt+enter&gt; will create new similiar
+indentation/star level just next line of the heading</li>
+
+<li>Hit &lt;Alt+arrow-keys&gt; to move up a heading above the similiar level(Star) heading but it can not past its super level heading (like 5* can not go above 4*), but it can be done with the help of &lt;Alt+shift+arrow-keys&gt;.</li>
+
+<li>Press &lt;C-c C-l&gt; or &lt;M-x org-insert-link Return&gt; to insert a link to a certain text or create a certain text for the link. Ex.<a href="https:orgmode.org">Org Mode Homepage</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orga4d7079" class="outline-3">
+<h3 id="orga4d7079"><span class="section-number-3">1.1.</span> Important formatting tips</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Here some more content
+</p>
+
+<ul class="org-ul">
+<li>Also use / around a word/sentence/text to convert it into <i>italian</i> format.</li>
+
+<li>Add * around a text/word/sentence to make it <b>bold</b>.</li>
+
+<li>Add _ around text/word/sentence to create a <span class="underline">underline</span>.</li>
+
+<li>Use + around text/sentence/word to have a <del>strikethrough</del>.</li>
+
+<li>Use ~ around any single code/script/command to give it <code>code</code> feel.</li>
+
+<li>Use = around any  text/sentence/word to have a <code>verbatim</code>.</li>
+
+<li>You can <span class="underline"><i><b>combine</b></i></span> the basic markup in any order, however <code>code</code> and <code>verbatim</code> need to be the <b><span class="underline"><code>inner-most</code></span></b> markers if they are present since their contents
+are interpreted <code>_literally_</code>.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgbbf84e6" class="outline-4">
+<h4 id="orgbbf84e6"><span class="section-number-4">1.1.1.</span> Table in org-mode ( Seriously its fun man)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Added more content
+</p>
+
+<ol class="org-ol">
+<li><p>
+table in Emacs - Just create headings i have created here , then press tab at the end word of your last heading, new cells will start to form automatically,
+similiar will happen to the contents to the cells.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Age</th>
+<th scope="col" class="org-left">Does it work (y/n)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ajay Kumar</td>
+<td class="org-right">90</td>
+<td class="org-left">y</td>
+</tr>
+
+<tr>
+<td class="org-left">Utkarsh</td>
+<td class="org-right">78</td>
+<td class="org-left">n</td>
+</tr>
+
+<tr>
+<td class="org-left">Somu</td>
+<td class="org-right">79</td>
+<td class="org-left">y</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+Example - try pressing at the end of hello means , press &lt;tab&gt; after o.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">y/n</td>
+<td class="org-left">hello/bolo</td>
+</tr>
+
+<tr>
+<td class="org-left">bulaya</td>
+<td class="org-left">n</td>
+<td class="org-left">hello</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+Also pressing &lt;tab&gt; after the end of any word, it will automatically restructure the content according to the size of table, try add a name in the name cell that is
+larger in size than name.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">name</th>
+<th scope="col" class="org-left">does it</th>
+<th scope="col" class="org-left">where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hello</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">yes</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">hello</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">no;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">kola</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+To create a table with borders above the headings, type | then add - in front of it Eg -&gt; '|-', then press tab , it will automatically create a borderline acc. to the table.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Sytem</td>
+<td class="org-left">Om</td>
+<td class="org-left">HariOm</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgd07f31b"></a>Lists, checques, tags and many more<br />
+<div class="outline-text-5" id="text-1-1-1-1">
+<p>
+Lists -
+</p>
+
+<p>
+Orderd Lists -&gt; 1., 1), A. A)
+</p>
+
+<ol class="org-ol">
+<li class="off"><code>[&#xa0;]</code> hello</li>
+<li>bolo</li>
+<li>kaha</li>
+</ol>
+
+<p>
+unordered Lists -&gt; -, *, +
+</p>
+
+<ul class="org-ul">
+<li>yaha</li>
+<li>kaha</li>
+<li>a</li>
+<li>gye</li>
+<li>hum</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>yes</li>
+<li>no</li>
+<li id="haha">needed that</li>
+</ul>
+
+<p>
+Check box -
+</p>
+
+<dl class="org-dl">
+<dt class="off"><code>[&#xa0;]</code> this one also</dt><dd>not started</dd>
+<dt class="trans"><code>[-]</code> This one too</dt><dd>in progress</dd>
+<dt class="on"><code>[X]</code> another one</dt><dd>completed</dd>
+<dt class="off"><code>[&#xa0;]</code> this one needed that</dt><dd>press &lt;shift+alt+enter&gt; to recreate this checkbox list on next line.</dd>
+<dt>(no term)</dt><dd>use (::) to create a tag at a list.</dd>
+<dt>(no term)</dt><dd>press &lt;shift+alt+enter&gt; below a orederd/unordered list to create a checklist based on list type in general.</dd>
+</dl>
+</div>
+
+<ol class="org-ol">
+<li><a id="orge33d63d"></a>Writing code in emacs man (maja hi gya <img src="./melting-emoji.png" alt="melting-emoji.png" /> )<br />
+<div class="outline-text-6" id="text-1-1-1-1-1">
+<p>
+One of the best feature of emacs, to write source code in a bloack like this -
+</p>
+
+<p>
+Syntax format -
+</p>
+
+<p>
+(#+begin<sub>src</sub> &lt;language<sub>type</sub>/mode&gt;
+</p>
+
+<p>
+&lt;source<sub>code</sub>&gt;
+</p>
+
+<p>
+#+end<sub>src</sub>)
+</p>
+
+
+<p>
+Ex.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">
+print("Hello World")
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+import "fmt"
+
+func main(){
+    fmt.Println("Hello World")
+}
+</pre>
+</div>
+</div>
+
+<ol class="org-ol">
+<li><a id="org2644406"></a><span class="done DONE">DONE</span> Todo-Done<br />
+<div class="outline-text-7" id="text-1-1-1-1-1-1">
+<ul class="org-ul">
+<li>use TODO to create task to done. Emacs org-mode has 2 states TODO and DONE , if you wanna change an state to another use &lt;C-c C-t&gt; / &lt;M-x org-todo Return&gt;</li>
+
+<li>Also use &lt;shift+left/right arrow-keys&gt; to change state of an heading from todo-&gt;done-&gt;nothing.</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org22a8db9" class="outline-2">
+<h2 id="org22a8db9"><span class="section-number-2">2.</span> Org-Advance</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org964b550" class="outline-3">
+<h3 id="org964b550"><span class="section-number-3">2.1.</span> Org-Agenda</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org9313bf0" class="outline-4">
+<h4 id="org9313bf0"><span class="section-number-4">2.1.1.</span> Active</h4>
+<div class="outline-text-4" id="text-2-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org1416045"></a>Kuch toh krna h<br /></li>
+
+<li><a id="org4e8f337"></a>Kuch toh jaruru krna h<br />
+<div class="outline-text-5" id="text-2-1-1-2">
+<p>
+Now what is deadline - to do some work before a certain date and time. Also emacs (org-agenda) will alarm you about your deadline. You can set the how much days before to alarm you about your task by using ( org-deadline-warning-days) variable in emacs to amount of days you want (default is 14).  
+</p>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgf5e4cb3" class="outline-4">
+<h4 id="orgf5e4cb3"><span class="section-number-4">2.1.2.</span> Set Birthday in Emacs</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org456d48f"></a><del>Hariom Birthday</del><br /></li>
+</ol>
+</div>
+
+<div id="outline-container-org86cab93" class="outline-4">
+<h4 id="org86cab93"><span class="section-number-4">2.1.3.</span> Additional Tasks states</h4>
+<div class="outline-text-4" id="text-2-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="org929965f"></a>Do this Instead<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: UTKARSH SINGH</p>
+<p class="date">Created: 2024-02-05 Mon 09:26</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
