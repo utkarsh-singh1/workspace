@@ -8,17 +8,33 @@ import (
 
 func main() {
 
-	f := openFile("file.txt")
+	f , err := os.Open("file.txt")
 
-	reader := bufio.NewScanner(f)
+	check(err)
 
+	b := []byte{}
+
+	fmt.Println(f.Read(b))
+	
 	defer f.Close()
-	
-	fmt.Println(reader)
 
-	
 
+	scanner := bufio.NewScanner(f)
+
+	fmt.Println(scanner)
 	
+	
+	
+	newReader := bufio.NewReader(f)
+	
+	data := make([]byte,100)
+
+	_, err = newReader.Read(data)
+
+	check(err)
+
+	fmt.Println(string(data))
+
 }
 
 func check(err error) {
@@ -29,19 +45,19 @@ func check(err error) {
 	}
 }
 
-func openFile(path string) (*os.File) {
+// func openFile(path string) (*os.File) {
 
-	f, err := os.Open(path)
+// 	f, err := os.Open(path)
 
 
-	f.WriteString("My Name is Utkarsh, Just testing function")
+// 	f.WriteString("My Name is Utkarsh, Just testing function")
 	
-	if os.IsNotExist(err) {
-		f , _ = os.Create(path)
-		f.WriteString("My Name is Utkarsh, Just testing function")
-	}
+// 	if os.IsNotExist(err) {
+// 		f , _ = os.Create(path)
+// 		f.WriteString("My Name is Utkarsh, Just testing function")
+// 	}
 	
 	
-	return f
+// 	return f
 	
-}
+// }
