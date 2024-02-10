@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <main>
+	<h1>
+	    Booking a Table
+	</h1>
+
+	<form>
+	    <fieldset id="tablesize">
+		<!-- Now adding label around input tags makes sure that the text around input text just don't becomes text and can't be clicked , in mobile interface it can create a some problem with small radio buttons , adding labels make sure but buttons and text are clickable to select radio buttons -->
+		<label>
+		    <input type="radio"  name="tablesize" value="2" />2-Person Table<br />
+		</label>
+		<label>
+		    <input type="radio"  name="tablesize" value="4" checked/>4-Person Table<br />
+		</label>
+		<!-- checked enables pre-checked radio buttons in the element -->
+		<label>
+		    <input type="radio"  name="tablesize" value="6" />6-Person Table<br />
+		</label>
+	    </fieldset>
+	    <fieldset id="location">
+		<label>
+		    <input type="radio" name="location" value="inside" checked />Inside<br />
+		</label>
+		<label>
+		    <input type="radio" name="location" value="inside" />Outside<br />
+		</label>
+		<!-- checked enables pre-checked radio buttons in the element -->
+	    </fieldset>
+	</form>
+    </main>
+    
+</body>
+
+</html>
