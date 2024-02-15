@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod1
+  labels:
+    app: frontend
+spec:
+  containers:
+    - name: image1
+      image: redis
+  # If there is no scheduler present in the cluster we can use kubernetes manifest property spec.nodeName
+  nodeName:
+    k8s-cl-m04
