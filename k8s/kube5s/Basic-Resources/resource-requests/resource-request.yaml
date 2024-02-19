@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-req-pod
+spec:
+  containers:
+    - name: img1
+      image: redis
+      ports:
+        - containerPort: 8080
+      resources:
+        # Resource requests from Pod that is needed to run this container
+        requests:
+          memory: "1Gi"
+          cpu: 1
+        # Limit prevents pod from over using Node resources
+        limits:
+          memory: "2Gi"
+          cpu: 2
+
