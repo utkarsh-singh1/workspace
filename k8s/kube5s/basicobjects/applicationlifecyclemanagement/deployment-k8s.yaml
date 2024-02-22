@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy1
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 3
+  template:
+    metadata:
+      name: front-pod
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: img1
+          image: redis
+          ports:
+            - containerPort : 80
