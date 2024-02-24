@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: img1
-      image: redis
+      image: registry.k8s.io/pause:2.0
 
-  nodeName:
-    k8s-cl-m02 
+  #nodeName:
+  #k8s-cl-m02 

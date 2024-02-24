@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-affinity1
-  #labels:
-    #security: S1
+  labels:
+    app: foo
 spec:
   affinity:
     podAffinity:
@@ -14,7 +14,7 @@ spec:
             operator: In
             values:
             - foo
-        topologyKey: size
+        topologyKey: zone
     # podAntiAffinity:
     #   preferredDuringSchedulingIgnoredDuringExecution:
     #   - weight: 100
