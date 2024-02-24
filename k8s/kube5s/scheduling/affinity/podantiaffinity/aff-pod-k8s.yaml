@@ -12,9 +12,9 @@ spec:
         - topologyKey: size
           labelSelector:
             matchExpressions:
-              - key: security
+              - key: app
                 values:
-                  - S1
+                  - bar
                 operator: In
                   
                 
