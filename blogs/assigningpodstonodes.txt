@@ -1,6 +1,0 @@
-
-Practical - Report:- 
-Methods to Assign Pods to Nodes
-
-
-1- Inter-pod-affinity / pod-affinity
