@@ -6,6 +6,11 @@ func main() {
 
 	//	compositedatatype.SlicetoTemp()
 
-	compositedatatype.MaptoTemp()
-	
+	//compositedatatype.MaptoTemp()
+
+	// compositedatatype.StrcutstoTemp()
+
+	// compositedatatype.StructsinSlicetoTemp()
+
+	compositedatatype.StructsinSliceinStrcuttoTemp()
 }

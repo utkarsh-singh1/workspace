@@ -6,15 +6,8 @@
 </head>
 <body>
   {{range .}}
-   <li>{{.}}</li>
+   <li>{{.First}} - {{.Last}}</li>
   {{end}}
-
-   --- OR ----
-
-  {{range $key, $element := .}}
-    <li>{{$element}}</li>
-  {{end}}
-    
 </body>
 </html>
 

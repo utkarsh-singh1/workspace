@@ -5,16 +5,11 @@
 <meta name="viewport" content="width=device-width intial-scale=1.0">
 </head>
 <body>
-  {{range .}}
-   <li>{{.}}</li>
-  {{end}}
 
-   --- OR ----
-
-  {{range $key, $element := .}}
-    <li>{{$element}}</li>
+  {{range .Cars}}
+  <li>{{.Brand}}</li>
   {{end}}
-    
+  
 </body>
 </html>
 
