@@ -10,8 +10,8 @@ spec:
       image: redis
   topologySpreadConstraints:
     - maxSkew: 1
-      topologyKey: size
+      topologyKey: zone
       whenUnsatisfiable: DoNotSchedule
       labelSelector:
         matchLabels:
-          app: front
+          app: foo

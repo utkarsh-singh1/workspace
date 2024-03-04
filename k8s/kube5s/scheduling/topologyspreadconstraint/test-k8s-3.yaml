@@ -9,5 +9,5 @@ spec:
     - name: img3
       image: registry.k8s.io/pause:2.0
 
-        #nodeName:
-        #k8s-cl-m06 
+  nodeName:
+    k8s-cl-m04 

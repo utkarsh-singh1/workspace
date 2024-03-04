@@ -7,11 +7,11 @@ metadata:
 spec:
   containers:
     - name: img1
-      image: redis
+      image: registry.k8s.io/pause:2.0
   topologySpreadConstraints:
     - maxSkew: 1
-      topologyKey: size
+      topologyKey: zone
       whenUnsatisfiable: DoNotSchedule
       labelSelector:
         matchLabels:
-          app: front
+          app: foo

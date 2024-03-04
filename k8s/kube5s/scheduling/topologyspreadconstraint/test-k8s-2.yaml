@@ -3,11 +3,11 @@ kind: Pod
 metadata:
   name: test-pod2
   labels:
-    app: foo
+    app: bar
 spec:
   containers:
     - name: img2
       image: registry.k8s.io/pause:2.0
 
-        #nodeName:
-        #k8s-cl-m05
+  nodeName:
+    k8s-cl-m02
