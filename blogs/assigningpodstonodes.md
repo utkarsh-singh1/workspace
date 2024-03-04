@@ -49,5 +49,4 @@ maxSkew will determine the pod spread by -
 
 - if you select `whenUnsatisfiable: ScheduleAnyway`, the scheduler gives higher precedence to topologies that would help reduce the skew.
 
-
 > whenUnsatisfiable: DoNotSchedule and whenUnsatisfiable: ScheduleAnyway are constraints of podTopologySpread.

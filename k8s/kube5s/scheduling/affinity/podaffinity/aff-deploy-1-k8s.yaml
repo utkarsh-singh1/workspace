@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: anti-aff-deployy
+  name: aff-deployy-1
 spec:
   replicas: 3
   selector:
@@ -17,7 +17,7 @@ spec:
         - name: img1
           image: registry.k8s.io/pause:2.0
       affinity:
-        podAntiAffinity:
+        podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - topologyKey: zone
               labelSelector:
