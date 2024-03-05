@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: antiaff-pod-1
+spec:
+  containers:
+    - name: img1
+      image: redis
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: size
+          labelSelector:
+            matchExpressions:
+              - key: app
+                values:
+                  - bar
+                operator: In
+                  
+                
