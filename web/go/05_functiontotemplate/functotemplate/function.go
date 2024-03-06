@@ -1,15 +1,16 @@
 package functotemplate
 
 import (
+	"log"
 	"os"
 	"strings"
 	"text/template"
 )
 
 type person struct {
-	first string
-	last string
-	age int
+	First string
+	Last string
+	Age int
 }
 
 var tpl *template.Template
@@ -41,29 +42,31 @@ func init() {
 func FuncinTemp() {
 
 	a := person{
-		first: "Hari",
-		last: "Om",
-		age: 1000,
+		First: "Hari",
+		Last: "Om",
+		Age: 1000,
 	}
 
 	b := person{
 
-		first: "Utkarsh",
-		last: "Singh",
-		age: 24,
+		First: "Utkarsh",
+		Last: "Singh",
+		Age: 24,
 		
 	}
 
 	c := person{
 
-		first: "Hola",
-		last: "Bhola",
-		age: 23,
+		First: "Hola",
+		Last: "Bhola",
+		Age: 23,
 	}
 
 	sg := []person{a,b,c}
 
 
-	tpl.ExecuteTemplate(os.Stdout,"index.gohtml",sg)
-	
+	err := tpl.ExecuteTemplate(os.Stdout,"index.gohtml",sg)
+	if err != nil {
+		log.Fatalln("Error =",err)
+	}
 }

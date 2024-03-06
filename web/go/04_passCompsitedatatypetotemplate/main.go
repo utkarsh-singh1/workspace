@@ -10,7 +10,7 @@ func main() {
 
 	// compositedatatype.StrcutstoTemp()
 
-	// compositedatatype.StructsinSlicetoTemp()
+	compositedatatype.StructsinSlicetoTemp()
 
-	compositedatatype.StructsinSliceinStrcuttoTemp()
+	// compositedatatype.StructsinSliceinStrcuttoTemp()
 }
