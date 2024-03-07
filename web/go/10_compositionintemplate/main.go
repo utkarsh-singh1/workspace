@@ -7,6 +7,6 @@ import (
 func main() {
 
 
-	structcomposition.Structs()
-	
+	//structcomposition.Structs()
+	structcomposition.StructInHeritance()
 }
