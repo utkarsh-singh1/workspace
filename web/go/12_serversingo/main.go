@@ -29,6 +29,6 @@ func main() {
 
 		fmt.Fprintf(conn, "%v", "well i hope!\n")
 
-		//conn.Close()
+		conn.Close()
 	}
 }
