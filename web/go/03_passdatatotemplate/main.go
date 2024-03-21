@@ -1,6 +1,8 @@
 package main
 
-import "web-Go/03_passdatatotemplate/totemplate"
+import (
+	"web-Go/03_passdatatotemplate/totemplate"
+)
 
 func main() {
 
@@ -8,4 +10,5 @@ func main() {
 
 
 	totemplate.VartoTemp()
+
 }
