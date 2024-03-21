@@ -4,7 +4,7 @@ import "web-Go/25_explorenethttprequest/explorequest"
 
 func main() {
 
-	//	explorequest.PrintingHttpMethods()
-	explorequest.PrintingHttpURLS()
+	explorequest.PrintingHttpMethods()
+	//explorequest.PrintingHttpURLS()
 
 }
