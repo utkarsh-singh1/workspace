@@ -50,5 +50,10 @@ func main() {
 
 	fmt.Printf("The binary value of a b x y l is %b %b %b %b %b\n", a, b, x, y, l)
 
-	fmt.Printf("The hexadecimal value of a b x y l is %x %x %x %x %x", a, b, x, y, l)
+	fmt.Printf("The hexadecimal value of a b x y l is %x %x %x %x %x\n", a, b, x, y, l)
+
+	// Concatenation in go
+
+	t, u, v := "Hello" ,"to", "new world"
+	fmt.Println(`Haha you got me, now say -> `+t+" "+u+" "+v+` `)
 }
