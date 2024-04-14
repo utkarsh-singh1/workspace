@@ -64,4 +64,6 @@ func handle(conn net.Conn) {
 
 	defer conn.Close()
 
+	fmt.Println("Did i reach this place? Did i 🤔 ")
+
 }
