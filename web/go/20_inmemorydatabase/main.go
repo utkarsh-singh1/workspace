@@ -33,6 +33,7 @@ func handle(conn net.Conn) {
 
 	defer conn.Close()
 
+	// Write to the connection
 	io.WriteString(conn, "\r\nIn-Memory Database\r\n\r\n"+
 		"Use:\r\n"+
 		"\tSET key value \r\n"+
