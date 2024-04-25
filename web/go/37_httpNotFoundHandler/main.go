@@ -23,6 +23,7 @@ func dog(w http.ResponseWriter, req *http.Request ) {
 
 }
 
+// How http.NotFound and http.NotFoundHandler has been implemented in net package
 func NotFoundHandler() http.Handler {
 
 	return http.HandlerFunc(http.NotFound)
