@@ -24,10 +24,9 @@ func set ( w http.ResponseWriter, req *http.Request) {
 	if err == http.ErrNoCookie {
 
 		cookie = &http.Cookie{
-			Name: "cookie",
-			Value: "0",
+			Name:       "cookie",
+			Value:      "0",
 		}
-
 	}
 
 	count, err := strconv.Atoi(cookie.Value)
