@@ -17,6 +17,7 @@ func main() {
 }
 
 
+// Create a cookie for a particular session
 func foo(w http.ResponseWriter, req *http.Request) {
 
 	c, err := req.Cookie("session")
