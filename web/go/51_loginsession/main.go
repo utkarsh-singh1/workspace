@@ -30,7 +30,7 @@ func main() {
 
 	http.HandleFunc("/bar", bar)
 
-	http.HandleFunc("/favicon.io", http.NotFound)
+	http.Handle("/favicon.ico", http.NotFoundHandler())
 
 	http.ListenAndServe(":8080", nil)
 
