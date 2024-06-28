@@ -57,10 +57,36 @@ func signUp( w http.ResponseWriter, req *http.Request) {
 
 	if req.Method == http.MethodPost {
 
+		// Get Value from forms
 		un := req.FormValue("Username")
 		f := req.FormValue("Firstname")
-		s := req.FormValue("Lastname")
+		l := req.FormValue("Lastname")
 		p := req.FormValue("Password")
+
+
+		// Check if username is already taken
+
+		if _, ok := dbUser[un] ; ok {
+
+			http.Error(w , "Username already exist", http.StatusForbidden)
+			return
+		} 
+
+		// Create a new session
+		sID := uuid.NewV4()
+		c := &http.Cookie{
+
+			Name: "session",
+			Value: sID.String(),
+		}
+
+		http.SetCookie(w , c)
+
+		// Add user to the db
+
+		dbSession[c.Value] = un
+
+		dbUser[un] = user{un, f , l, p}
 		
 
 	}
