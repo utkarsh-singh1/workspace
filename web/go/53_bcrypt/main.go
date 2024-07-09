@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	uuid "github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type user struct {
@@ -66,9 +67,22 @@ func signUp(w http.ResponseWriter, req *http.Request) {
 
 		dbSession[c.Value] = un
 
+		// Encrypt Password
+
+		bs, err := bcrypt.GenerateFromPassword([]byte(p), bcrypt.MinCost )
+		if err != nil {
+
+			http.Error(w , "Internal Server Error", http.StatusInternalServerError)
+		}
+
 		// Add userdetail to username
 
-		dbUser[un] = user{un,f,l,p}
+		dbUser[un] = user{un,f,l,string(bs)}
+
+		// Redirect Back to Homepage after signup
+
+		http.Redirect(w , req, "/", http.StatusSeeOther)
+		return
 		
 	}
 	
