@@ -24,6 +24,8 @@ func main() {
 
 	http.HandleFunc("/login", logIn)
 
+	http.HandleFunc("/logout", logOut)
+
 	http.HandleFunc("/bar", bar)
 
 	http.ListenAndServe(":8080", nil)
@@ -155,5 +157,42 @@ func bar(w http.ResponseWriter, req *http.Request) {
 
 	
 	
+}
+
+func logOut(w http.ResponseWriter, req *http.Request) {
+
+
+	// Check if already logged in or not
+
+	if !alreadyLoggedIn(req) {
+
+		http.Redirect(w , req, "/", http.StatusSeeOther)
+		return
+	}
+
+	// Now if Logged in
+
+	c, _ := req.Cookie("session")
+
+	// delete User from dbSession
+
+	delete(dbSession, c.Value)
+
+	// Delete the cookie
+
+	c = &http.Cookie{
+
+		Name: "session",
+		Value: "",
+		MaxAge: -1, // if MaxAge < 0 then then cookie will be removed
+		
+	}
+
+	// SetCookie
+
+	http.SetCookie(w, c)
+
+
+	http.Redirect(w, req, "/" , http.StatusSeeOther)
 }
 
