@@ -22,6 +22,8 @@ func main() {
 
 	http.HandleFunc("/signup", signUp)
 
+	http.HandleFunc("/logout", logIn)
+
 	http.HandleFunc("/bar", bar)
 
 	http.ListenAndServe(":8080", nil)
