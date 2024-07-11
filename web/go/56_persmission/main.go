@@ -8,7 +8,7 @@ import (
 )
 
 type user struct {
-	Username, First, Last string
+	Username, First, Last, Role string
 	Password []byte
 }
 
@@ -51,6 +51,7 @@ func signUp(w http.ResponseWriter, req *http.Request) {
 		f := req.FormValue("First")
 		l := req.FormValue("Last")
 		p := req.FormValue("Password")
+		r := req.FormValue("Role")
 
 		// if username is already exist or not
 
@@ -80,7 +81,7 @@ func signUp(w http.ResponseWriter, req *http.Request) {
 
 		// Add userdetail to username
 
-		dbUser[un] = user{un,f,l,bs}
+		dbUser[un] = user{un,f,l,bs,r}
 
 		// Redirect Back to Homepage after signup
 
@@ -153,6 +154,11 @@ func bar(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w , req , "/", http.StatusSeeOther)	
 	}
 
+
+	if u.Role != "007" {
+
+		http.Error(w, "You are not allowed to enter because you are not 007 buddy ",http.StatusForbidden)
+	}
 	
 	
 }
