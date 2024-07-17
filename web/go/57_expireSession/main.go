@@ -199,7 +199,7 @@ func logOut ( w http.ResponseWriter, req *http.Request) {
 
 	// Go back to Home Page
 
-	http.Redirect(w, req, "/", http.StatusSeeOther)
+	http.Redirect(w, req, "/login", http.StatusSeeOther)
 
 }
 

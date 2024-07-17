@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
@@ -61,4 +62,34 @@ func alreadyLoggedIn(req *http.Request) bool {
 	_, ok := dbUser[un]
 
 	return ok
+}
+
+func cleanSession() {
+
+	fmt.Println("Before Clean Up")
+	showSession()
+
+	for k, v := range dbSession {
+
+		if time.Now().Sub(v.lastActivity) > time.Second * 30 {
+
+			delete(dbSession, k)
+		}
+	}
+
+	dbSessionCleaned = time.Now()
+	fmt.Println("After Clean Up")
+	showSession()
+
+}
+
+func showSession() {
+
+	fmt.Println("************")
+	for k,v := range dbSession {
+
+		fmt.Println(k,v.Username)
+	}
+	fmt.Println("")
+ 
 }
