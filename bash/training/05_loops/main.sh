@@ -21,3 +21,14 @@ do
 		read message
 		echo "You have typed $message"
 done
+
+
+# : --> always yiels true
+while :
+do	
+		echo "Please type something here (Ctrl+C to quit)"
+		read input
+		echo "You have some input... $input here"
+done
+
+
