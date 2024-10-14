@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: st1
+  labels:
+    app: frontend
+spec:
+  selector:
+    matchLabels:
+      app: fe
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: fe
+    spec:
+      containers:
+      - name: cont1
+        image: nginx
+         
