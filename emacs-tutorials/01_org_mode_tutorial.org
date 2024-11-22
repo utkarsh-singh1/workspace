@@ -1,0 +1,34 @@
+
+* Some necessary KEY-bindings
+
+- Use tab to close and open a heading/sub-heading and its content but it can close only current heading where cursor is. it also works on the content like this I writing. Ex - if I press return and enter new line and type something there I can press tab on the previous line and it will fold close and open the content accordingly.
+- Use shift+tab to close/collapse and reopen all the main headings ( * ) .
+  Also shift+tab has 3 phases -
+  - Complete collapse (No heading and No content)
+  - Partial Open (Only Heading No Content)
+  - Complete Open (With full content and Heading)
+- Instead of writing a star to create a new heading use ctrl+enter and alt+enter -
+  - Use ctrl+enter to create a same level / indentation heading below the content and the heading (Place the cursor on the heading or end of the heading).
+  - Use alt+enter to create a same level / indentation heading just below the heading but if there is content in the previous heading it will become content of new heading.
+- On a new line have single space between * and cursor and press shift+tab it will current single star into double star.
+- Use alt+arrow (Up and Down) to move the heading around go above its same level of heading to re-organize content (its content will move also), but if you are using it for lower level heading it won't go above its superior heading.
+  Also use alt+arrow (left and right) to increase or decrease the level of heding or indentation of heading (* to ** or ***, or **** ) progressively. 
+ 
+
+|---------------------|
+| Org - Mode Tutorial |
+|---------------------|
+                     
+* First Header (like <H1>)
+
+some content
+
+** Sub Heading ( like <h2> )
+
+some more content
+
+* Second Heading
+
+- putiing a * around a word (without a space between word and *) will make it bold
+  Ex - *hello*
+
