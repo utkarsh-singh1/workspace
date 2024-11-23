@@ -1,3 +1,6 @@
+|---------------------|
+| Org - Mode Tutorial |
+|---------------------|
 
 * Some necessary KEY-bindings
 
@@ -13,12 +16,7 @@
 - On a new line have single space between * and cursor and press shift+tab it will current single star into double star.
 - Use alt+arrow (Up and Down) to move the heading around go above its same level of heading to re-organize content (its content will move also), but if you are using it for lower level heading it won't go above its superior heading.
   Also use alt+arrow (left and right) to increase or decrease the level of heding or indentation of heading (* to ** or ***, or **** ) progressively. 
- 
-
-|---------------------|
-| Org - Mode Tutorial |
-|---------------------|
-                     
+                      
 * First Header (like <H1>)
 
 some content
@@ -29,6 +27,84 @@ some more content
 
 * Second Heading
 
-- putiing a * around a word (without a space between word and *) will make it bold
+- putiing a * around a word (without a space between word and \* ) will make it bold
   Ex - *hello*
+
+- Use org-insert-link command from command-centre(M-x) to insert a link at a certain word or sentence. U can provide a description aroud a link in the buffer or you can select a text phrase to work with.
+  And use org-open-at-point command to open that link in your browser u just have to have cursor upon that link.
+- To create a table use | then write table heading -
+
+  Ex -
+
+  Note - 
+
+  I am adding - in front of table is to make table visible or after render it will look like a table 
+
+
+  - You can add new heading | next to the 1st heading to create a new column and can continue to do so, then at last press tab at the last heading to complete table and add new row.
+  
+  - | table | ddree |
+  - |       |       |
+  
+  - Every time you press tab it cycle through each block of table and at the the last block if you press tab it will create a new row similiar to the no. of heading.
+
+  - Also if you enter a word which is long enough for the current table block you can press tab to align whole table for the new word.
+
+  - |     1 | 2 |
+  - | hello |   |
+  - |       |   |
+
+  - Also you can use |- to create a outline around the row or table.
+
+  - |-------|
+  - | hello |
+  - |-------|
+  - |       |
+
+  See this -
+  
+  - |-------+-------+--------|
+  - | hello | world | myself |
+
+
+- Use ( - ) to create a new bullet point, and also can use
+
+  1. hello (press alt+enter to automatically create a new bullet point 2. or new -)
+
+  2. 
+
+- Check box (press alt+shift+enter to create new checkbox)
+
+  Ex -
+
+  - [ ] (Press C-c+C-x+C-b) to check and uncheck the box.
+
+- Source code blocks
+
+  Ex -
+  
+  Syntax {
+
+  #+begin_src name_of_programming_language (python, elisp (emacs-lisp), go etc. )
+
+    code
+    
+  #+end_src
+
+}
+
+  #+begin_src go
+
+    package main
+
+    import "fmt"
+
+    func main() {
+
+	    fmt.Println("Hello world)
+    }
+
+  #+end_src
+
+  
 
