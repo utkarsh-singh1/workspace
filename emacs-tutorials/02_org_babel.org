@@ -1,0 +1,3 @@
+* How to work with org-babel
+
+org-babel enable us to put code block in the org-mode files and let the code get executed and output results, it also enable to export the code output to work as another code's input.

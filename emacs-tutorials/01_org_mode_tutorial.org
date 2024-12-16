@@ -83,7 +83,7 @@ some more content
 
   Ex -
   
-  Syntax {
+  Syntax for how to write code in org-mode :- 
 
   #+begin_src name_of_programming_language (python, elisp (emacs-lisp), go etc. )
 
@@ -91,7 +91,6 @@ some more content
     
   #+end_src
 
-}
 
   #+begin_src go
 
@@ -106,5 +105,31 @@ some more content
 
   #+end_src
 
+
+  #+begin_src python :results output
+
+    x = 5
+
+    for i in range(5):
+	if i % 2 == 0:
+	    print(i)
+
+  #+end_src
   
+- Emacs in default only supports two states - TODO and DONE, well as the words say TODO means this one is in working or pending and DONE means done.
+
+  If you wanna initiate this state -
+
+  write TODO in front of any level of heading.
+
+  Ex  -
+  
+* TODO Hello
+* DONE HELLO
+
+As you can see there are 2 states that have their own colour representation, you can change state of any topic here, u can also change the state by pressing <shift+right/left_arrow_keys> but put the cursor at the end of respecting heading.
+
+Also u can use org-todo command (c-c + c-t) to acheive the same toggle as explain above.
+
+
 
