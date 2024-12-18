@@ -1,5 +1,7 @@
 
-#+title  Org - Mode Tutorial 
+#+title: Org - Mode Tutorial
+#+date: 19-12-2024
+#+author: utkarsh singh
 
 
 * Some necessary KEY-bindings
