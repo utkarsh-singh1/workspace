@@ -1,6 +1,6 @@
-|---------------------|
-| Org - Mode Tutorial |
-|---------------------|
+
+#+title  Org - Mode Tutorial 
+
 
 * Some necessary KEY-bindings
 

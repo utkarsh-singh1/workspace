@@ -1,3 +1,56 @@
+
+|-----------|
+| ORG-BABEL |
+|-----------|
+
+
+
 * How to work with org-babel
 
 org-babel enable us to put code block in the org-mode files and let the code get executed and output results, it also enable to export the code output to work as another code's input.
+
+#+begin_src python :results output
+
+  def hello():
+      return "I wanna say Hello!"
+
+  print(hello())
+
+#+end_src
+
+Use (C-c + C-c) or org-babel-execute-src-block command to execute this python code block.
+
+:results value -> output the value if we want if there is no value to return it returns None.
+
+:results output -> tells the org-babel-execute-src-block command to have the desired ouput.
+
+#+begin_src go :results output
+  package main
+
+  import "fmt"
+
+  func main(){
+
+          fmt.Println("Hello World")
+  }
+#+end_src
+
+Also if results are return as values we can use this value to export and they also can be used to sent this value to another code block in the same doc.
+
+In the Emacs config file there is a method has been a method to enable creating source block without the need to writing #+begin_src and #+end_src. In the Emacs config file shortcut keyword has been setup to activate the code block.
+
+Ex - type - < and then the keyword setup for the code block completion (without space) and then press tab.
+
+try it! ->  press tab after writing <py
+
+** Org-babel-tangle
+
+org-babel-tangle introduces a way to wrtite the source code written in code blocks in org mode files and write them down to the files mentioned under :tangle tag in the code blocks.
+
+Ex -
+
+#+begin_src emacs-lisp :tangle location_of_file
+
+#+end_src
+
+:tangle location_of_file represents the location where code has to be pasted after executing org-babel-tangle command or press <C-c + C-v + t> to tangle the current code to the mentioned location of the file. If not mentioned running the above mentioned command it will throw the error. 
