@@ -1,8 +1,7 @@
 
-|-----------|
-| ORG-BABEL |
-|-----------|
-
+#+title: ORG-BABEL 
+#+date: 19-12-2024
+#+author: utkarsh singh
 
 
 * How to work with org-babel
