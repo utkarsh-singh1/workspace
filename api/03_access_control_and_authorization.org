@@ -1,0 +1,39 @@
+
+#+title: Access Control
+#+author: Utkarsh Singh
+
+* Access Control
+
+There can be different type of users accesing the backend server through the API and its necessary to ensure there is enough security provided to access the api also, there has to be way to make sure there is authorization in front of API to let only legitimate people are accessing the API and also after the authentication only certain level of people can access core part of backend.
+
+
+[[./images/api_access_control.jpg]]
+
+As we can can see in the image there are multiple type of users who are trying to access the API, each user has different need from the API , so we have to categorize these users in a hierarchy so that they have differrent level of access of the API. But before that we have to also setup authentication.
+
+** But what is authentication?
+
+Authentication is a process to verify the credential of the user.
+
+The image belows shows the basic authentication steps between a client and the API.
+
+- Step 1:
+
+  Log in to the website with the username and passowrd provided to web-server and server side will generate a session token for the user and return it with response as a cookie and cookie will save it in the browser.
+  
+  [[./images/api_access_control-2.jpg]]
+
+
+- Step 2:
+
+  Now as the generated token is saved as the cookie in the browser for that partcular endpoint, every time a user make an api call there will no need to enter the username and passwd again as token will send with http header and it will be verify against the sever side saved token. This process will last till user logout from the website.
+  
+  [[./images/api_access_control-3.jpg]]
+
+
+As we have entered the website after the authentication it is not necessary we will be allowed to access all the features of the website, there are certain feature that is only accessible to certain level of users, now this process to is called authorization. As to access those features one must have certain level of authority.
+
+** Authorization
+
+
+  
