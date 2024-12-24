@@ -2,8 +2,6 @@
 #+title: Access Control
 #+author: Utkarsh Singh
 
-* Access Control
-
 There can be different type of users accesing the backend server through the API and its necessary to ensure there is enough security provided to access the api also, there has to be way to make sure there is authorization in front of API to let only legitimate people are accessing the API and also after the authentication only certain level of people can access core part of backend.
 
 

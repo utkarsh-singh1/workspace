@@ -1,0 +1,28 @@
+
+#+title: basic API bookAPI
+#+author: Utkarsh Singh
+
+* Book List API
+
+This is a basic book list project where there will be number of books available and one can look at the number of all available books available also a particular book with the help of api endpoint.
+
+So what are the points needed to to care of -
+
+1. The book list should follow standard api rules and also follow http methods and status codes.
+2. It must be design in a way so that -
+
+   - Manager can add and edit the books available in the list.
+   - Customer can view all the books and can also view a particular book.
+
+Now for all of this work we need a db to store all the books and thier relevent info in the table and a django model to manipulate that table to store our data. Django model will act as a bridge between our logic and the data.
+
+We need to add these properties in the django model -
+
+| Identifier | Field type    | capacity                      |
+| Title      | charField     | max 255                       |
+| Author     | charField     | max 255                       |
+| Price      | DecimalField  | 5 digits and 2 decimal places |
+| Inventory  | Integer Field |                               |
+
+Also, we need to add 2 endpoint to let customer access the whole book or a paricular book.
+

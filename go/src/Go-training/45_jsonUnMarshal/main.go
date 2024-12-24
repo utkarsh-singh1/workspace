@@ -15,20 +15,29 @@ func main() {
 
 	var s string
 
-	s = `[{"Name":"utkarsh","Age":18,"Loveit":"yes"},{"Name":"kyle","Age":23,"Loveit":"no"}]`
-	
+	s = `[
+    {
+        "Name":"utkarsh",
+        "Age":18,
+        "Loveit":"yes"
+    },
+    {
+        "Name":"kyle",
+        "Age":23,
+        "Loveit":"no"
+    }
+    ]`
 
 	bs := []byte(s)
 
-	
 	ps := person{
-		{"json", 34, "no",},
+		{"jason", 34, "no"},
 	}
 
 	err := json.Unmarshal(bs, &ps)
 	if err != nil {
 
-		fmt .Println("Error =",err)
+		fmt.Println("Error =", err)
 
 	}
 
