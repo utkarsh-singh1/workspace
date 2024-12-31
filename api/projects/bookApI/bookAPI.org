@@ -4,25 +4,50 @@
 
 * Book List API
 
-This is a basic book list project where there will be number of books available and one can look at the number of all available books available also a particular book with the help of api endpoint.
+BookList Api is project that focus on following points -
 
-So what are the points needed to to care of -
+#+begin_quote
 
-1. The book list should follow standard api rules and also follow http methods and status codes.
-2. It must be design in a way so that -
+- Create entry for the book and its info in the builtin BookDb.
+- Fetch all books, fetch books by their author, fetch books by thier id in the Inbuild Database (BookDb). 
+- Delete all books, entry, delete books by thier IDs.
+  
+#+end_quote
 
-   - Manager can add and edit the books available in the list.
-   - Customer can view all the books and can also view a particular book.
+*** But what is BookDb?
 
-Now for all of this work we need a db to store all the books and thier relevent info in the table and a django model to manipulate that table to store our data. Django model will act as a bridge between our logic and the data.
+Well BookDb is a simple relatinal db which strore each book with a assign ID which can also act as Unique Key to fetch the particular book.
 
-We need to add these properties in the django model -
 
-| Identifier | Field type    | capacity                      |
-| Title      | charField     | max 255                       |
-| Author     | charField     | max 255                       |
-| Price      | DecimalField  | 5 digits and 2 decimal places |
-| Inventory  | Integer Field |                               |
+Structure of Book like this that will store info about each book strored -
 
-Also, we need to add 2 endpoint to let customer access the whole book or a paricular book.
+#+begin_src go
+
+  type Book struct {
+	  ID int
+	  Name string
+	  Author string
+	  Date time.Time
+  }
+  
+#+end_src
+
+The endpoint to perform the cretae, fetch and delete operations are -
+
+#+begin_quote
+
+| method | enpoint      | action                                          |
+| POST   | /book        | Create a new entry for new book                 |
+| GET    | /book        | Get all Books                                   |
+| GET    | /book/{id}   | Get book with the particular id                 |
+| GET    | /book/author | Get the list of books with the mentioned author |
+| DELETE | /book        | Delete all books                                |
+| DELETE | /book/{id}   | Delete a book by its ID                         |
+
+#+end_quote
+
+
+Note:-
+
+In future there will be authorization and authentication will be implemented in the api so there will be different access level for the manager and customer.
 
