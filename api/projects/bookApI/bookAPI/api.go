@@ -17,7 +17,7 @@ type BookDb struct {
 	Id      int
 }
 
-func new() *BookDb {
+func New() *BookDb {
 
 	bd := &BookDb{}
 
@@ -45,9 +45,17 @@ func (bd *BookDb) CreateEntry(Name string, Author string, Date time.Time) int {
 
 }
 
-func (bd *BookDb) DeleteEntry(id int) {
+func (bd *BookDb) DeleteEntry(id int) error {
 
+	if _, ok := bd.Bookmap[id] ; ok {
+
+		return fmt.Errorf("Sorry couldn't any book by this id - %v ", id)
+		
+	}
+	
 	delete(bd.Bookmap, id)
+
+	return nil
 
 }
 
