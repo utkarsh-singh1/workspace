@@ -1,0 +1,22 @@
+#+title: Concurrency in go
+#+author: UTKARSH SINGH
+#+description: My notes on concurrency in general languages and in go
+
+* Concurrency
+
+** In General
+- In general concurrency is running multiple threads/process of program by executing some functions or methods.
+- A program can run multiple process in parallel if it has multiple CPUs, but can only run in sequential way if only one CPU is present.
+- Multiple languages has not yet achieved a better way to run processes concurrently due to their design philosophy, that's why there is Error occurs (Race Condition) in an attempt to access shared variable.
+
+** In Go
+- Due to Go's design philosophy go can achieve concurrency with multiple process and also limit Errors limit condition by restricting access to shared variable one at a time. At a time only a single go-routine can access can access the shared variable.
+
+  There is qoute in Golang -
+  #+begin_quote
+    Do not communicate by sharing memory, but share memory by communicating.
+  #+end_quote
+
+  A channel is used to passed shared values around instead of shared by seperate go-routines.
+
+
