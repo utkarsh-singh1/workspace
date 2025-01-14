@@ -36,7 +36,7 @@ Prefix a function or method call with the go keyword to run the call in a new go
 
 #+end_src
 
-A function literal can be handy in a goroutine invocation.
+A function literal (Anonymous Functions) can be handy in a goroutine invocation.
 
 #+begin_src go
 
@@ -52,6 +52,8 @@ A function literal can be handy in a goroutine invocation.
 In Go, function literals are closures: the implementation makes sure the variables referred to by the function survive as long as they are active.
 
 These examples aren't too practical because the functions have no way of signaling completion. For that, we need channels.
+
+More about [[https://go.dev/ref/spec#Go_statements][go keyword here.]]
 
 ** Channels
 Like maps, channels are allocated with make, and the resulting value acts as a reference to an underlying data structure. If an optional integer parameter is provided, it sets the buffer size for the channel. The default is zero, for an unbuffered or synchronous channel.
