@@ -26,6 +26,8 @@ func main() {
 	for i := 0; i < gs; i++ {
 
 		go func() {
+
+			runtime.Gosched()
 			counter = counter + 1
 		}()
 		fmt.Println("Current goroutine count is",goroutines, "and counter count is",counter)
