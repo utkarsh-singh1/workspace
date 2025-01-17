@@ -32,7 +32,8 @@ func main() {
 		go func() {
 			mu.Lock()
 			runtime.Gosched()
-			counter = counter + 1 
+			counter = counter + 1
+			fmt.Println("Current Count of counter is",counter)
 			mu.Unlock()
 			wg.Done()
 		}()
