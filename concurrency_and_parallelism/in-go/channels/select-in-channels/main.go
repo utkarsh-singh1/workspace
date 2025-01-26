@@ -28,7 +28,7 @@ func send(e, o, q chan<- int) {
 	}
 	//close(e)
 	//close(o)
-	q <- 0
+	close(q)
 
 }
 
@@ -41,8 +41,8 @@ func receive(e, o, q <-chan int) {
 			fmt.Println("Current even value is",v)
 		case v := <-o:
 			fmt.Println("Current odd values is",v)
-		case v := <-q:
-			fmt.Println("\nLets quit this operation by status command",v)
+		case v, ok := <-q:
+			fmt.Println("\nLets quit this operation by status command",v,ok)
 			return
 		}
 	}
