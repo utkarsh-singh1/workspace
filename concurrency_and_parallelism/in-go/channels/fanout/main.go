@@ -47,8 +47,6 @@ func sendfromTo(c1, c2 chan int) {
 }
 
 func doingSomeWork(n int) int {
-
 	time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
 	return n + rand.Intn(500)
-
 }

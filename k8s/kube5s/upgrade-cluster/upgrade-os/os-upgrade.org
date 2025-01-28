@@ -4,13 +4,13 @@
 
 * Pod-eviction
 
-In a 3 worker node (w1, w2, w3) and 1 master node (m1) ,carrying these color labeled pods, each node carries 2 pods like this -
+In a 3 worker node (w1, w2, w3) and 1 master node (m1) ,carrying these color labelled pods, each node carries 2 pods like this -
 
 - w1 -> blue, green,
 - w2 -> blue, red
 - w3 -> red, black
 
-Now, if w1 goes down blue and green pods goes down also, however app running in pod does not seem to be affected as it has one more replica in w2, but green pod does not, its a issue, however, if node w1 comes before 5 min, it can revive blue and green pods and service can resume however, if it does not pods will be deleted if node goes down for more than 5 min. This 5 min timelimit is set in kube-controller-manager and also known as pod-eviction timeout. In case if pod that is deleted was part of replicaset it can be scheduled on other worker nodes depends upon node availability, but if they are not part of it so say bye-bye to your app.
+Now, if w1 goes down blue and green pods goes down also, however app running in pod does not seem to be affected as it has one more replica in w2, but green pod does not, its a issue, however, if node w1 comes before 5 min, it can revive blue and green pods and service can resume however, if it does not pods will be deleted if node goes down for more than 5 min. This 5 min timelimit is set in kube-controller-manager and also known as pod-eviction time-out. In case if pod that is deleted was part of replicaset it can be scheduled on other worker nodes depends upon node availability, but if they are not part of it so say bye-bye to your app.
 
 So if somehow you want to maintain a node and want to take down node w1 and repair it U can use -
 
@@ -42,3 +42,51 @@ You can use-
 Make w1 cordon or unschedulable and no new pods can be placed on it. However unlike drain it does not move existing pods to other nodes it just make node unschedulable for new pods.
 
 * K8s-Releases and Versioning
+
+kubernetes versioning is what current api-versioning is -
+
+You can see that by running -
+
+#+begin_src bash 
+  kubectl get nodes -o wide
+#+end_src
+
+Output -
+Version section is called as current k8s version.
+
+#+begin_quote
+NAME      STATUS     ROLES           AGE    VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE              KERNEL-VERSION   CONTAINER-RUNTIME
+k8s       Ready      control-plane   104s   v1.32.0   192.168.39.141   <none>        Buildroot 2023.02.9   5.10.207         docker://27.4.0
+k8s-m02   NotReady   <none>          37s    v1.32.0   192.168.39.60    <none>        Buildroot 2023.02.9   5.10.207         docker://27.4.0
+k8s-m03   NotReady   <none>          10s    v1.32.0   192.168.39.240   <none>        Buildroot 2023.02.9   5.10.207         docker://27.4.0
+#+end_quote
+
+Which is currently v1.32.0
+
+Ok so what is v1.32.0 describes -
+
+- 1 - Major Version
+- 32 - Minor Version (Introduces festures, performance upgrades and functinalitites, Introduces in every few months cycle)
+- 0 or >0 - Patch Version (Including Bug fixes)
+
+There are alpha and beta releases of k8s are also there -
+
+- Intial imporovements and bug fixes are transported to the alpha releases where features are disabled intially.
+- Then they are gone to beta releases where are codes are well tested and enabled in the release and finally it is merged into the stable release.
+
+* Cluster-Upgrade Process
+
+Kubernetes supports upto 3 versions of k8s release means -> x , x-1 , x-2 with x being the current version.
+
+Also, kubernetes master plane components follow a hierarchy order in support to the components -
+
+- Kube-apiserver is major component, where all major component talk to the kube-apiserver so it must be at the version x (x being current k8s version Ex. 1.32)
+- Then comes controller-manager and scheduler that can be at x or x-1 to the apiserver.
+- then kube-proxy or kubelet which can be at x/x-1/x-2 to the apiserver.
+- But kubectl can be at x/x-1/x+1 to the kube-apiserver.
+
+Remember as previously stated you can have support of k8s upto max x-2 version of x (x being current version), if x becomes x+1 then x-2 will be unsupported, so what will happen you have to upgrade to the newest cluster, but not direct from x-2 to x+1 or x but by being periodically one by one, x-2>x-1>x>x+1.
+
+There are several tools that can be used to upgrade cluster like, cloud-service-provider, kubeadm or hard-way (manually dowloading components and upgrading it.)
+
+Here we will do it by kubeadm way.
