@@ -12,10 +12,10 @@ type User struct {
 	Name string `json:"name"`
 
 	// The swd is sensitive if it leaks, say goodbye to your daata, in this case we can have special struct tag so that we can have swd field omitted from the json output, the tag is `json:" - "`. Keep note of the space.
-	swd string `json:"swd"`
+	Swd string `json:"swd"`
 
-	// Somehow i don't want to have this field any kind of value in future it may change but in present na-na don't want any value here when creating its instance, so i will suffix ",omitempty" to the json struct tag like this `json:"age, omitempty"` to make this field omitted from json output after marshal or if not created json output will have age field with null value init.
-	Age int `json:"age"`
+	// Somehow i don't want to have this field any kind of value currently, in future it may change but in present na-na, don't want any value here when creating its instance, so i will suffix ",omitempty" to the json struct tag like this `json:"age,omitempty"` to make this field omitted from json output after marshal or if not used`json:"age",omitempty`, json output will have age field with null value init.
+	Age int `json:"age,omitempty"`
 
 	CreatedAt time.Time `json:"createdAt"`
 
@@ -31,9 +31,9 @@ type op struct {
 func main() {
 	u := &User{
 		Name:      "baburao",
-		swd:       "champaklal",
+		Swd:       "champaklal",
 		CreatedAt: time.Now(),
-		Age:       32,
+		//Age:       32,
 	}
 
 	out, err := json.MarshalIndent(u, "", "  ")

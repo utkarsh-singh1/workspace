@@ -1,0 +1,44 @@
+#+title: os-upgrade
+#+author: UTKARSH SINGH
+
+
+* Pod-eviction
+
+In a 3 worker node (w1, w2, w3) and 1 master node (m1) ,carrying these color labeled pods, each node carries 2 pods like this -
+
+- w1 -> blue, green,
+- w2 -> blue, red
+- w3 -> red, black
+
+Now, if w1 goes down blue and green pods goes down also, however app running in pod does not seem to be affected as it has one more replica in w2, but green pod does not, its a issue, however, if node w1 comes before 5 min, it can revive blue and green pods and service can resume however, if it does not pods will be deleted if node goes down for more than 5 min. This 5 min timelimit is set in kube-controller-manager and also known as pod-eviction timeout. In case if pod that is deleted was part of replicaset it can be scheduled on other worker nodes depends upon node availability, but if they are not part of it so say bye-bye to your app.
+
+So if somehow you want to maintain a node and want to take down node w1 and repair it U can use -
+
+#+begin_src sh
+  kubectl drain w1
+#+end_src
+
+This will drain node w1 and schedule its previous pods (blue, greeb) in other nodes based on avaialability.
+
+However, if node w1 still comes back online previous pods can not go back to w1 due to -
+
+- Its cordoned or tainted unschedulable
+- Its not magic you delete these previous pods (blue and green) from other nodes than schedule on w1.
+
+However, before scheduling any new pods on w1 you have to remove its taint by -
+
+#+begin_src bash
+  kubectl uncordon w1
+#+end_src
+
+And new pods can be scheduled on this w1.
+
+You can use-
+
+#+begin_src bash
+  kubectl cordon w1
+#+end_src
+
+Make w1 cordon or unschedulable and no new pods can be placed on it. However unlike drain it does not move existing pods to other nodes it just make node unschedulable for new pods.
+
+* K8s-Releases and Versioning
