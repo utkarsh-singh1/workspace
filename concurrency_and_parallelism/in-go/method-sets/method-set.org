@@ -1,0 +1,123 @@
+#+title: Understanding Interface and Method Sets in Golang
+#+author: Utkarsh Singh
+#+date: 10 January 2025
+
+* Introduction
+
+Ok this topic give me some headache but alas it was wonderful to know it now and I can now write an POST about it gives me enough confidence that I know about this Go unsung rule with method-sets and interface.
+
+* Method Sets
+So by definition method-set of type T is set of methods assigned to particular type T means receiver of those methods is T. And method set of type *T is set of methods which have recievers *T and T, means it also contains method set of T.
+
+#+begin_src go
+
+  package main
+
+  import "fmt"
+
+  type user1 struct {
+          Name string
+          Age int
+  }
+
+  func (u user1) Details1() string{
+
+          return fmt.Sprintf("The name and age of this person is %s and %d", u.Name, u.Age)
+  }
+
+  func (u *user1) Details2() string{
+
+          return fmt.Sprintf("The name and age of this gentleman is %s and %d", u.Name, u.Age)
+  }
+
+  func main(){
+
+        u1 := user1{
+                "Jha", 45,
+        }
+
+        u2 := &user1{
+                "Sharma", 32,
+        }
+
+        fmt.Println(u1.Details1(),u1.Details2())
+
+        fmt.Println(u2.Details1(),u2.Details2())
+
+  }
+
+#+end_src
+
+As above seen there is method set of user1 is Details1 and method set of *user1 is Details1 and Details2.
+
+But u1 can access both methods details1 and details2 and as usual u2(pointer value) has both method details1 details2 as both method set is user1 and *user1. So where it does relate to the given description in the [[https://go.dev/ref/spec#Method_sets][go ref spec]] well it matters when it come to interface, It is explained below with the code.
+
+** Introduction of Interface
+
+
+#+begin_src go
+  package main
+
+  import "fmt"
+  type user1 struct {
+          Name string
+          Age int
+  }
+
+  func (u user1) Details1() string{
+
+          return fmt.Sprintf("The name and age of this person is %s and %d", u.Name, u.Age)
+  }
+
+  func (u *user1) Details2() string{
+
+          return fmt.Sprintf("The name and age of this gentleman is %s and %d", u.Name, u.Age)
+  }
+
+  type user interface {
+          Details1()
+          Details2()
+  }
+
+  func Details(u user) {
+          fmt.Printf("The result of method assign to user interface is %s and %s",u.Details1(), u.Details2() )
+  }
+
+  func main(){
+
+          u1 := user1{
+                  "Jha", 45,
+          }
+
+          u2 := &user1{
+                  "Sharma", 32,
+          }
+
+          fmt.Println(u1.Details1(),u1.Details2())
+
+          fmt.Println(u2.Details1(),u2.Details2())
+
+          Details(u1)
+          // Details(u2)
+
+  }
+#+end_src
+
+Now there is interface type is introduced named user and it has 2 type attached to it - Details1 and Details2.
+
+Also a function is declared Details() which takes value of type user as its parameter.
+
+Now try to call this Details() function with the argument u1 as method Details1 is attached to both user1 and user interface. Run the program in a editor of your choice and u will get this output -
+
+#+begin_quote
+./main1.go:43:10: cannot use u1 (variable of type user1) as user value in argument to Details: user1 does not implement user (method Details2 has pointer receiver)
+#+end_quote
+
+But why?
+
+Well, due to Details2 has receiver of type *user1 that makes u1 unable to become value provider to Details2, but as said above method sets of *T is set of method of receiver of T and *T also *T can access method set of T.
+
+You should use pointer value u2 in this case.
+
+This restrcition to use pointer value is applicable in case of interface only.
+
