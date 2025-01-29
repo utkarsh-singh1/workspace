@@ -90,3 +90,111 @@ Remember as previously stated you can have support of k8s upto max x-2 version o
 There are several tools that can be used to upgrade cluster like, cloud-service-provider, kubeadm or hard-way (manually dowloading components and upgrading it.)
 
 Here we will do it by kubeadm way.
+
+- Intially there are mulitple methodologies to upgrade kubernetes cluseter
+  - Starting from master node m1 (Always start from master node) while we upgrade m1 by taking it down (meanining all master plane componentsa are not available but worker nodes w1,w2,w3 are available means sevices fro blue green orange and black pods are active. But creating new pods or resurces and deleting them etc are not allowed). After master node comes back up, all services will resume also other components as compared to kube-apiserver are still behind by one or two version it looks good as kubelet and kube-proxy can be x-2/x-1/x from apiserver.
+  - But as usual u can upgrade w1 w2 w3/m1 in multiple different ways as stated earlier.
+    - Drain w1/w2/w3 all at once to upgrade it then restore service. But since all nodes are down users can not be accessing the apps as all the nodes are down.
+    - Or Upgrade one at a time. First of w1/w2/w3 in any order.  
+    - Or introduced new upgraded nodes in the cluster containing apps and services while replacing old nodes. This can be possible in cloud env.
+
+  Anyway one way to upgrade a node in kubeadm is to use
+
+  #+begin_src sh
+    kubeadm upgrade plan
+  #+end_src
+
+  and
+
+  #+begin_src sh
+    kubeadm upgrade apply
+  #+end_src
+
+
+** Steps to upgrade cluster version -
+
+*** Steps to upgrade master node 
+
+  1. Run ~kubectl upgrade plan~ which will give you all the information about cluster and kubelet and which latest version you can upgrade your kubeadm and cluster onto.
+     But you have to manually upgrade the kubelet as kubeadm does not install or upgrade kubelet and restart kubelet. But you must upgrade kubeadm tool itself before upgrading the cluster.
+
+     Remember we can only upgrade cluster version one at a time. Ex. 1.x -> 1.(x+1), 1.2 -> 1.21 etc.
+     
+     So run - 
+
+     #+begin_src sh
+       #if pkg manager is apt
+       apt-get upgrade -y kubeadm=version-to-upgrade
+     #+end_src
+
+ 2. Then run -
+
+     #+begin_src sh
+       kubeadm upgrade apply version-to-upgrade
+     #+end_src
+
+     This command will upgrade the master-node components, but when you will run
+
+     #+begin_src shell
+       kubectl get nodes
+     #+end_src
+
+     You will still get previous version in the output because kubeadm has not upgraded the kubelet yet, reasone as usual kubeadm does not install or upgrade kubelet, so version show here belongs to kubelet not to the kube-apiserver. 
+
+ 3. Means kubelet pkg needs to be upgraded and restart its services -
+
+    #+begin_src sh
+      # if you are on apt pkg manager
+      apt-get upgrade -y kubelet=version-to-upgrade
+    #+end_src
+
+    #+begin_src sh
+      # In case of systemD
+      systemctl restart kubelet.service
+    #+end_src
+
+    Now master node Upgrade is complete.
+
+*** Steps to Upgrade worker nodes
+
+Switch to the node you want to upgrade.
+
+1. We have to do it one bye one (In case of we have more than 1 worker node (w1,w2,w3) ). First run -
+
+   #+begin_src sh
+     kubectl drain w1
+   #+end_src
+
+   which will transfer loads of node1 to other nodes. And make it unschedulable.
+
+   Now node1 is down to upgrade.
+
+2. Like master node worker node needs to upgrade kubeadm and kubelet to desired state and restart the kubelet to let node1 upgrade.
+
+   #+begin_src shell
+     # If pkg Manager is apt
+     apt-get upgrade -y kubeadm=version-to-upgrade
+     apt-get upgrade -y kubelet=version-to-upgrade
+   #+end_src
+
+   Now update the new node for new kubelet config
+
+   #+begin_src shell
+     kubeadm upgrade node config --kubelet-version latest-upgraded-version-of-kubelet
+   #+end_src
+
+   Now restart the service
+
+   #+begin_src sh
+     systemctl restart kubelet.service
+   #+end_src
+   
+3. Now it is upgraded but remember it needed to be uncordoned or remove the unschedulable taint from w1 
+
+   #+begin_src shell
+     kubectl uncordon w1
+   #+end_src
+
+   Remember old pods will not come back automatically, they will be back when they are deleted or rescheduled to the w1.
+   
+   Similiarly with this method we can upgrade all the Nodes to the latest version.
