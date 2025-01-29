@@ -198,3 +198,23 @@ Switch to the node you want to upgrade.
    Remember old pods will not come back automatically, they will be back when they are deleted or rescheduled to the w1.
    
    Similiarly with this method we can upgrade all the Nodes to the latest version.
+
+
+** Note - 
+
+Now remember you have to upgrade kubeadm and kubelet upgrade first, but for that you have to remember you have to change the repository version of kubernetes.
+
+Mostly 3rd party app repos are stored in ~/etc/apt/source.list.d/kubernetes.list~, update the Kubernetes version from v1 to v2.
+
+Then run - 
+
+#+begin_src shell
+  apt update
+
+  # Get available version
+  apt-cache madison kubeadm
+
+  # then upgrade the kubeadm and kubelet then reload the daemon and kubelet
+  systemctl daemon-reload
+  systemctl restart ubelet
+#+end_src
